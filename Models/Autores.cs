@@ -17,6 +17,8 @@ namespace _06Publicaciones
         public string Estado { get; set; }
         public string CodigoPostal { get; set; }
         public string Contrato { get; set; }
+        //solo para mostrar informacion
+        public string NombreCompleto { get; set; }
 
         // Constructor vacío
         public Autor() { }
@@ -43,7 +45,7 @@ namespace _06Publicaciones
                         comando.Parameters.AddWithValue("@Ciudad", autor.Ciudad);
                         comando.Parameters.AddWithValue("@Estado", autor.Estado);
                         comando.Parameters.AddWithValue("@CodigoPostal", autor.CodigoPostal);
-                        comando.Parameters.AddWithValue("@Contrato", true);
+                        comando.Parameters.AddWithValue("@Contrato", "1");
 
                         using (var lector = comando.ExecuteReader())
                         {
@@ -59,7 +61,6 @@ namespace _06Publicaciones
                                     Ciudad = lector["city"].ToString(),
                                     Estado = lector["state"].ToString(),
                                     CodigoPostal = lector["zip"].ToString(),
-                                    Contrato = lector["contract"].ToString()
                                     
                                 };
                             }
@@ -205,6 +206,13 @@ namespace _06Publicaciones
                         {
                             while (lector.Read())
                             {
+                                // public string NombreCompleto { get; set; }
+                                /*
+                                 * frm_Autor
+                                 *   lst_Autores.DataSource = Autor.ObtenerTodos();
+                                       lst_Autores.DisplayMember = "NombreCompleto";
+                                        lst_Autores.ValueMember = "IdAutor";
+                                 */
                                 autores.Add(new Autor
                                 {
                                     IdAutor = lector["au_id"].ToString(),
@@ -214,7 +222,8 @@ namespace _06Publicaciones
                                     Direccion = lector["address"].ToString(),
                                     Ciudad = lector["city"].ToString(),
                                     Estado = lector["state"].ToString(),
-                                    CodigoPostal = lector["zip"].ToString()
+                                    CodigoPostal = lector["zip"].ToString(),
+                                    NombreCompleto = lector["au_fname"].ToString() + " " + lector["au_lname"].ToString()
                                 });
                             }
                         }

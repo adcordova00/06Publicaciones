@@ -20,6 +20,17 @@ namespace _06Publicaciones.Views.Autores
 
         private void frm_Autores_Load(object sender, EventArgs e)
         {
+            CargaAutores();
+        }
+
+        public void CargaAutores() {
+            var listaAutores = Autor.ObtenerTodos();
+            lst_Autores.DataSource = null;
+            lst_Autores.DataSource = listaAutores;
+            lst_Autores.DisplayMember = "NombreCompleto";
+            lst_Autores.ValueMember = "IdAutor";
+
+
 
         }
         private void ButtonInsertar_Click(object sender, EventArgs e)
@@ -38,12 +49,19 @@ namespace _06Publicaciones.Views.Autores
                     CodigoPostal = textBoxCodigoPostal.Text
                 };
 
-                Autor.Insertar(autor);
-                MessageBox.Show("Autor insertado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var insertado = Autor.Insertar(autor);
+                if (insertado != null)
+                {
+                    CargaAutores();
+                    ErrorHandler.ManejarInsertar();
+                }
+                else {
+                    return;
+                }
             }
             catch (Exception ex)
             {
-                ErrorHandler.ManejarErrorGeneral(ex, "Error al insertar el autor.");
+                ErrorHandler.ManejarErrorGeneral(ex, "");
             }
         }
         private void ButtonLimpiar_Click(object sender, EventArgs e)
@@ -56,6 +74,11 @@ namespace _06Publicaciones.Views.Autores
             textBoxCiudad.Clear();
             textBoxEstado.Clear();
             textBoxCodigoPostal.Clear();
+        }
+
+        private void listBox1_DoubleClick(object sender, EventArgs e)
+        {
+
         }
     }
 }
