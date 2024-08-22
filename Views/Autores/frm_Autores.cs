@@ -33,10 +33,38 @@ namespace _06Publicaciones.Views.Autores
 
 
         }
+        private bool validarcampos(params TextBox[] cajadetexto) {
+            foreach (var caja in cajadetexto) {
+                if (string.IsNullOrWhiteSpace(caja.Text)) {
+                    ErrorHandler.ManejarErrorGeneral(null, "Complete la informacion");
+                    return false;               
+                }
+            }
+            return true;
+        }
         private void ButtonInsertar_Click(object sender, EventArgs e)
         {
             try
             {
+                #region
+                /*if (string.IsNullOrWhiteSpace(textBoxIdAutor.Text)|| 
+                    string.IsNullOrWhiteSpace(textBoxApellido.Text) ||
+                    string.IsNullOrWhiteSpace(textBoxNombre.Text) ||
+                    string.IsNullOrWhiteSpace(textBoxCiudad.Text) ||
+                    string.IsNullOrWhiteSpace(textBoxCodigoPostal.Text) ||
+                    string.IsNullOrWhiteSpace(textBoxDireccion.Text) ||
+                    string.IsNullOrWhiteSpace(textBoxTelefono.Text) ||
+                    string.IsNullOrWhiteSpace(textBoxEstado.Text) 
+                    ) {
+                    ErrorHandler.ManejarErrorGeneral(null, "Complete todo los campos");
+                    return;
+                }*/
+                #endregion
+
+                if (!validarcampos(textBoxApellido, textBoxCiudad, textBoxCodigoPostal, textBoxDireccion, textBoxEstado, textBoxIdAutor, textBoxNombre)) {
+                    return;
+                }
+
                 var autor = new Autor
                 {
                     IdAutor = textBoxIdAutor.Text,
@@ -78,6 +106,27 @@ namespace _06Publicaciones.Views.Autores
 
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
+            if (lst_Autores.SelectedValue != null)
+            {
+                var autor = Autor.ObtenerPorId(lst_Autores.SelectedValue.ToString());
+                textBoxIdAutor.Text = autor.IdAutor;
+                textBoxApellido.Text = autor.Apellido;
+                textBoxNombre.Text = autor.Nombre;
+                textBoxTelefono.Text = autor.Telefono;
+                textBoxDireccion.Text = autor.Direccion;
+                textBoxCiudad.Text = autor.Ciudad;
+                textBoxEstado.Text = autor.Estado;
+                textBoxCodigoPostal.Text = autor.CodigoPostal;
+            }
+            else
+            {
+                ErrorHandler.ManejarErrorGeneral(null, "Seleccione un item de la lista");
+            }
+        }
+
+        private void lst_Autores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
 
         }
     }

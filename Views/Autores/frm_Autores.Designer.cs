@@ -236,6 +236,7 @@ namespace _06Publicaciones.Views.Autores
             this.lst_Autores.Name = "lst_Autores";
             this.lst_Autores.Size = new System.Drawing.Size(413, 354);
             this.lst_Autores.TabIndex = 18;
+            this.lst_Autores.SelectedIndexChanged += new System.EventHandler(this.lst_Autores_SelectedIndexChanged);
             this.lst_Autores.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
             // 
             // label1
