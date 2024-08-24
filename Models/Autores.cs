@@ -17,6 +17,7 @@ namespace _06Publicaciones
         public string Estado { get; set; }
         public string CodigoPostal { get; set; }
         public string Contrato { get; set; }
+        public string NombreCompleto { get; set; }
 
         // Constructor vacío
         public Autor() { }
@@ -43,7 +44,7 @@ namespace _06Publicaciones
                         comando.Parameters.AddWithValue("@Ciudad", autor.Ciudad);
                         comando.Parameters.AddWithValue("@Estado", autor.Estado);
                         comando.Parameters.AddWithValue("@CodigoPostal", autor.CodigoPostal);
-                        comando.Parameters.AddWithValue("@Contrato", true);
+                        comando.Parameters.AddWithValue("@Contrato", 1);
 
                         using (var lector = comando.ExecuteReader())
                         {
@@ -59,8 +60,9 @@ namespace _06Publicaciones
                                     Ciudad = lector["city"].ToString(),
                                     Estado = lector["state"].ToString(),
                                     CodigoPostal = lector["zip"].ToString(),
-                                    Contrato = lector["contract"].ToString()
-                                    
+                                    //Contrato = lector["contract"].ToString(),
+                                    NombreCompleto = lector["au_fname"].ToString() + " " + lector["au_lname"].ToString()
+
                                 };
                             }
                         }

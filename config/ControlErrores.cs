@@ -24,5 +24,18 @@ namespace _06Publicaciones.config
             // Mostrar el MessageBox con el mensaje de error
             MessageBox.Show($"{mensajePersonalizado}\n\nDetalles del error:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        public static void ManejarInsertar() {
+            MessageBox.Show("Se inserto con exito");
+        }
+
+        public static void ManejarActualizar() {
+            MessageBox.Show("Se actualizo con exito");
+        }
+
+        public static void ManejarEliminar()
+        {
+            MessageBox.Show("Se elimino con exito");
+        }
     }
 }

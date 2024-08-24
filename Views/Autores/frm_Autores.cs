@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using _06Publicaciones.config;
 
@@ -18,9 +11,18 @@ namespace _06Publicaciones.Views.Autores
             InitializeComponent();
         }
 
+        public void CargarAutores() {
+
+            var listaAutores = Autor.ObtenerTodos();
+            lst_autores.DataSource = null;
+            lst_autores.DataSource = listaAutores;
+            lst_autores.DisplayMember = "NombreCompleto";
+            lst_autores.ValueMember = "IdAutor";
+        }
+
         private void frm_Autores_Load(object sender, EventArgs e)
         {
-
+            CargarAutores();
         }
         private void ButtonInsertar_Click(object sender, EventArgs e)
         {
@@ -38,12 +40,19 @@ namespace _06Publicaciones.Views.Autores
                     CodigoPostal = textBoxCodigoPostal.Text
                 };
 
-                Autor.Insertar(autor);
-                MessageBox.Show("Autor insertado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var insertado = Autor.Insertar(autor);
+                if (insertado != null)
+                {
+                    ErrorHandler.ManejarInsertar();
+                }
+                else {
+                    return;
+                }
+                
             }
             catch (Exception ex)
             {
-                ErrorHandler.ManejarErrorGeneral(ex, "Error al insertar el autor.");
+                ErrorHandler.ManejarErrorGeneral(ex, "");
             }
         }
         private void ButtonLimpiar_Click(object sender, EventArgs e)
@@ -56,6 +65,11 @@ namespace _06Publicaciones.Views.Autores
             textBoxCiudad.Clear();
             textBoxEstado.Clear();
             textBoxCodigoPostal.Clear();
+        }
+
+        private void listBox1_DoubleClick(object sender, EventArgs e)
+        {
+
         }
     }
 }
