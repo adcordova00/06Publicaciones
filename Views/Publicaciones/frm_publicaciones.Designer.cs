@@ -54,6 +54,7 @@ namespace _06Publicaciones.Views.Publicaciones
             this.txt_notas = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dtp_fecha_publicacion = new System.Windows.Forms.DateTimePicker();
+            this.btn_eliminar_publicaciones = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.num_avance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_precio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_regalias)).BeginInit();
@@ -91,6 +92,7 @@ namespace _06Publicaciones.Views.Publicaciones
             this.lst_Publicaciones.Name = "lst_Publicaciones";
             this.lst_Publicaciones.Size = new System.Drawing.Size(567, 484);
             this.lst_Publicaciones.TabIndex = 60;
+            this.lst_Publicaciones.DoubleClick += new System.EventHandler(this.lst_Publicaciones_DoubleClick);
             // 
             // lbl_Titulo
             // 
@@ -306,11 +308,22 @@ namespace _06Publicaciones.Views.Publicaciones
             this.dtp_fecha_publicacion.Size = new System.Drawing.Size(384, 22);
             this.dtp_fecha_publicacion.TabIndex = 73;
             // 
+            // btn_eliminar_publicaciones
+            // 
+            this.btn_eliminar_publicaciones.Location = new System.Drawing.Point(1088, 563);
+            this.btn_eliminar_publicaciones.Name = "btn_eliminar_publicaciones";
+            this.btn_eliminar_publicaciones.Size = new System.Drawing.Size(115, 51);
+            this.btn_eliminar_publicaciones.TabIndex = 74;
+            this.btn_eliminar_publicaciones.Text = "Eliminar";
+            this.btn_eliminar_publicaciones.UseVisualStyleBackColor = true;
+            this.btn_eliminar_publicaciones.Click += new System.EventHandler(this.btn_eliminar_publicaciones_Click);
+            // 
             // frm_publicaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 668);
+            this.Controls.Add(this.btn_eliminar_publicaciones);
             this.Controls.Add(this.dtp_fecha_publicacion);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txt_notas);
@@ -375,5 +388,6 @@ namespace _06Publicaciones.Views.Publicaciones
         private System.Windows.Forms.TextBox txt_notas;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtp_fecha_publicacion;
+        private System.Windows.Forms.Button btn_eliminar_publicaciones;
     }
 }

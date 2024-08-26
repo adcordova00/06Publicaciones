@@ -62,5 +62,11 @@ namespace _06Publicaciones.Views
             frm_tiendas _Tiendas = new frm_tiendas();
             _Tiendas.ShowDialog();
         }
+
+        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_ventas _Ventas = new frm_ventas();
+            _Ventas.ShowDialog();
+        }
     }
 }

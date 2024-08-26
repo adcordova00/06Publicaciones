@@ -64,6 +64,7 @@ namespace _06Publicaciones.Views.Trabajos
             this.lst_Trabajos.Name = "lst_Trabajos";
             this.lst_Trabajos.Size = new System.Drawing.Size(452, 444);
             this.lst_Trabajos.TabIndex = 60;
+            this.lst_Trabajos.DoubleClick += new System.EventHandler(this.lst_Trabajos_DoubleClick);
             // 
             // lbl_Titulo
             // 

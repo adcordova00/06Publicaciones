@@ -19,7 +19,7 @@ namespace _06Publicaciones.Controllers
             return Editorial.ActualizarEditorial(editorial);
         }
 
-        public string EliminarEmpleado(string idEditorial)
+        public string EliminarEditorial(string idEditorial)
         {
             return Editorial.EliminarEditorial(idEditorial);
         }

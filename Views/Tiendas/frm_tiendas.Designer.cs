@@ -45,6 +45,7 @@
             this.txt_ciudad_tienda = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_estado_tienda = new System.Windows.Forms.TextBox();
+            this.btn_eliminar_tienda = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txt_cpostal_tienda
@@ -84,6 +85,7 @@
             this.lst_Tiendas.Name = "lst_Tiendas";
             this.lst_Tiendas.Size = new System.Drawing.Size(567, 484);
             this.lst_Tiendas.TabIndex = 88;
+            this.lst_Tiendas.DoubleClick += new System.EventHandler(this.lst_Tiendas_DoubleClick);
             // 
             // lbl_Titulo
             // 
@@ -207,11 +209,22 @@
             this.txt_estado_tienda.Size = new System.Drawing.Size(381, 22);
             this.txt_estado_tienda.TabIndex = 101;
             // 
+            // btn_eliminar_tienda
+            // 
+            this.btn_eliminar_tienda.Location = new System.Drawing.Point(1120, 569);
+            this.btn_eliminar_tienda.Name = "btn_eliminar_tienda";
+            this.btn_eliminar_tienda.Size = new System.Drawing.Size(104, 45);
+            this.btn_eliminar_tienda.TabIndex = 102;
+            this.btn_eliminar_tienda.Text = "Eliminar";
+            this.btn_eliminar_tienda.UseVisualStyleBackColor = true;
+            this.btn_eliminar_tienda.Click += new System.EventHandler(this.btn_eliminar_tienda_Click);
+            // 
             // frm_tiendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1265, 583);
+            this.ClientSize = new System.Drawing.Size(1248, 626);
+            this.Controls.Add(this.btn_eliminar_tienda);
             this.Controls.Add(this.txt_estado_tienda);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txt_ciudad_tienda);
@@ -255,5 +268,6 @@
         private System.Windows.Forms.TextBox txt_ciudad_tienda;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_estado_tienda;
+        private System.Windows.Forms.Button btn_eliminar_tienda;
     }
 }

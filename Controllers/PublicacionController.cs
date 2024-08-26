@@ -9,22 +9,22 @@ namespace _06Publicaciones.Controllers
 {
     internal class PublicacionController
     {
-        public Publicacion InsertarTrabajo(Publicacion publicacion)
+        public Publicacion InsertarPublicacion(Publicacion publicacion)
         {
             return Publicacion.InsertarPublicacion(publicacion);
         }
 
-        public string ActualizarTrabajo(Publicacion publicacion)
+        public string ActualizarPublicacion(Publicacion publicacion)
         {
             return Publicacion.ActualizarPublicacion(publicacion);
         }
 
-        public string EliminarTrabajo(string idPublicacion)
+        public string EliminarPublicacion(string idPublicacion)
         {
             return Publicacion.EliminarPublicacion(idPublicacion);
         }
 
-        public Publicacion ObtenerTrabajoPorId(string idPublicacion)
+        public Publicacion ObtenerPublicacionPorId(string idPublicacion)
         {
             return Publicacion.ObtenerPublicacionPorId(idPublicacion);
         }

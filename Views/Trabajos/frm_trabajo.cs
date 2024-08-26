@@ -113,5 +113,21 @@ namespace _06Publicaciones.Views.Trabajos
                 MessageBox.Show("El usuario cancelo la operacion");
             }
         }
+
+        private void lst_Trabajos_DoubleClick(object sender, EventArgs e)
+        {
+            if (lst_Trabajos.SelectedValue != null)
+            {
+                var trabajo = Trabajo.ObtenerTrabajoPorId(lst_Trabajos.SelectedValue.ToString());
+                txt_descripcion_trabajo.Text = trabajo.Descripcion;
+                num_max_nivel.Value = trabajo.MaxLevel;
+                num_min_nivel.Value = trabajo.MinLevel;
+            }
+            else
+            {
+                ErrorHandler.ManejarErrorGeneral(null, "Seleccione un item de la lista");
+            }
+
+        }
     }
 }

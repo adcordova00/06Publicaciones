@@ -108,5 +108,49 @@ namespace _06Publicaciones.Views.Publicaciones
             }
 
         }
+
+        private void btn_eliminar_publicaciones_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Desea Eliminar la publicacion?", "Formulario de publicaciones", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                var publicacion = Publicacion.EliminarPublicacion(lst_Publicaciones.SelectedValue.ToString());
+                if (lst_Publicaciones.SelectedItem == null)
+                {
+                    ErrorHandler.ManejarEliminar();
+                }
+                else
+                {
+                    MessageBox.Show("La tienda se elimino con exito");
+                    CargaPublicaciones();
+                }
+            }
+            else
+            {
+                MessageBox.Show("El usuario cancelo la operacion");
+            }
+        }
+
+        private void lst_Publicaciones_DoubleClick(object sender, EventArgs e)
+        {
+            if (lst_Publicaciones.SelectedValue != null)
+            {
+                var publicacion = Publicacion.ObtenerPublicacionPorId(lst_Publicaciones.SelectedValue.ToString());
+                txt_id_publicacion.Text = publicacion.IdPublicacion;
+                txt_titulo.Text = publicacion.Titulo;
+                txt_genero.Text = publicacion.Genero;
+                cb_editorial_publicacion.SelectedValue = publicacion.IdEditorial;
+                num_precio.Value = Convert.ToDecimal(publicacion.Precio);
+                num_avance.Value = Convert.ToDecimal(publicacion.Avance);
+                num_regalias.Value = Convert.ToInt32(publicacion.Regalias);
+                num_ventas_anuales.Value = Convert.ToInt32(publicacion.VentasAnuales);
+                txt_notas.Text = publicacion.Notas;
+                dtp_fecha_publicacion.Value = Convert.ToDateTime(publicacion.FechaPublicacion);
+            }
+            else
+            {
+                ErrorHandler.ManejarErrorGeneral(null, "Seleccione un item de la lista");
+            }
+        }
     }
 }

@@ -99,5 +99,46 @@ namespace _06Publicaciones.Views.Tiendas
         {
             LimpiarForm();
         }
+
+        private void btn_eliminar_tienda_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Desea Eliminar la tienda?", "Formulario de tiendas", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                var tienda = Tienda.EliminarTienda(lst_Tiendas.SelectedValue.ToString());
+                if (lst_Tiendas.SelectedItem == null)
+                {
+                    ErrorHandler.ManejarEliminar();
+                }
+                else
+                {
+                    MessageBox.Show("La tienda se elimino con exito");
+                    CargaTiendas();
+                }
+            }
+            else
+            {
+                MessageBox.Show("El usuario cancelo la operacion");
+            }
+
+        }
+
+        private void lst_Tiendas_DoubleClick(object sender, EventArgs e)
+        {
+            if (lst_Tiendas.SelectedValue != null)
+            {
+                var tienda = Tienda.ObtenerTiendaPorId(lst_Tiendas.SelectedValue.ToString());
+                txt_id_tienda.Text = tienda.IdTienda;
+                txt_nombre_tienda.Text = tienda.NombreTienda;
+                txt_direccion_tienda.Text = tienda.Direccion;
+                txt_ciudad_tienda.Text = tienda.Ciudad;
+                txt_estado_tienda.Text = tienda.Estado;
+                txt_cpostal_tienda.Text = tienda.CodigoPostal;
+            }
+            else
+            {
+                ErrorHandler.ManejarErrorGeneral(null, "Seleccione un item de la lista");
+            }
+        }
     }
 }
