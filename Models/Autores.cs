@@ -206,13 +206,6 @@ namespace _06Publicaciones
                         {
                             while (lector.Read())
                             {
-                                // public string NombreCompleto { get; set; }
-                                /*
-                                 * frm_Autor
-                                 *   lst_Autores.DataSource = Autor.ObtenerTodos();
-                                       lst_Autores.DisplayMember = "NombreCompleto";
-                                        lst_Autores.ValueMember = "IdAutor";
-                                 */
                                 autores.Add(new Autor
                                 {
                                     IdAutor = lector["au_id"].ToString(),

@@ -29,9 +29,6 @@ namespace _06Publicaciones.Views.Autores
             lst_Autores.DataSource = listaAutores;
             lst_Autores.DisplayMember = "NombreCompleto";
             lst_Autores.ValueMember = "IdAutor";
-
-
-
         }
         private bool validarcampos(params TextBox[] cajadetexto) {
             foreach (var caja in cajadetexto) {
@@ -42,25 +39,21 @@ namespace _06Publicaciones.Views.Autores
             }
             return true;
         }
+
+        private void LimpiarForm() {
+            textBoxIdAutor.Clear();
+            textBoxApellido.Clear();
+            textBoxNombre.Clear();
+            textBoxTelefono.Clear();
+            textBoxDireccion.Clear();
+            textBoxCiudad.Clear();
+            textBoxEstado.Clear();
+            textBoxCodigoPostal.Clear();
+        }
         private void ButtonInsertar_Click(object sender, EventArgs e)
         {
             try
             {
-                #region
-                /*if (string.IsNullOrWhiteSpace(textBoxIdAutor.Text)|| 
-                    string.IsNullOrWhiteSpace(textBoxApellido.Text) ||
-                    string.IsNullOrWhiteSpace(textBoxNombre.Text) ||
-                    string.IsNullOrWhiteSpace(textBoxCiudad.Text) ||
-                    string.IsNullOrWhiteSpace(textBoxCodigoPostal.Text) ||
-                    string.IsNullOrWhiteSpace(textBoxDireccion.Text) ||
-                    string.IsNullOrWhiteSpace(textBoxTelefono.Text) ||
-                    string.IsNullOrWhiteSpace(textBoxEstado.Text) 
-                    ) {
-                    ErrorHandler.ManejarErrorGeneral(null, "Complete todo los campos");
-                    return;
-                }*/
-                #endregion
-
                 if (!validarcampos(textBoxApellido, textBoxCiudad, textBoxCodigoPostal, textBoxDireccion, textBoxEstado, textBoxIdAutor, textBoxNombre)) {
                     return;
                 }
@@ -92,16 +85,11 @@ namespace _06Publicaciones.Views.Autores
                 ErrorHandler.ManejarErrorGeneral(ex, "");
             }
         }
+
+
         private void ButtonLimpiar_Click(object sender, EventArgs e)
         {
-            textBoxIdAutor.Clear();
-            textBoxApellido.Clear();
-            textBoxNombre.Clear();
-            textBoxTelefono.Clear();
-            textBoxDireccion.Clear();
-            textBoxCiudad.Clear();
-            textBoxEstado.Clear();
-            textBoxCodigoPostal.Clear();
+            LimpiarForm();
         }
 
         private void listBox1_DoubleClick(object sender, EventArgs e)

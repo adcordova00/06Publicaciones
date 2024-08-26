@@ -35,6 +35,8 @@ namespace _06Publicaciones.Views
             this.publicacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editorialesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +48,9 @@ namespace _06Publicaciones.Views
             this.trabajosToolStripMenuItem,
             this.publicacionesToolStripMenuItem,
             this.ventasToolStripMenuItem,
-            this.autoresToolStripMenuItem});
+            this.autoresToolStripMenuItem,
+            this.editorialesToolStripMenuItem,
+            this.tiendasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1182, 28);
@@ -72,6 +76,7 @@ namespace _06Publicaciones.Views
             this.publicacionesToolStripMenuItem.Name = "publicacionesToolStripMenuItem";
             this.publicacionesToolStripMenuItem.Size = new System.Drawing.Size(113, 24);
             this.publicacionesToolStripMenuItem.Text = "Publicaciones";
+            this.publicacionesToolStripMenuItem.Click += new System.EventHandler(this.publicacionesToolStripMenuItem_Click);
             // 
             // ventasToolStripMenuItem
             // 
@@ -85,6 +90,20 @@ namespace _06Publicaciones.Views
             this.autoresToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
             this.autoresToolStripMenuItem.Text = "Autores";
             this.autoresToolStripMenuItem.Click += new System.EventHandler(this.autoresToolStripMenuItem_Click);
+            // 
+            // editorialesToolStripMenuItem
+            // 
+            this.editorialesToolStripMenuItem.Name = "editorialesToolStripMenuItem";
+            this.editorialesToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
+            this.editorialesToolStripMenuItem.Text = "Editoriales";
+            this.editorialesToolStripMenuItem.Click += new System.EventHandler(this.editorialesToolStripMenuItem_Click);
+            // 
+            // tiendasToolStripMenuItem
+            // 
+            this.tiendasToolStripMenuItem.Name = "tiendasToolStripMenuItem";
+            this.tiendasToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.tiendasToolStripMenuItem.Text = "Tiendas";
+            this.tiendasToolStripMenuItem.Click += new System.EventHandler(this.tiendasToolStripMenuItem_Click);
             // 
             // General
             // 
@@ -110,5 +129,7 @@ namespace _06Publicaciones.Views
         private System.Windows.Forms.ToolStripMenuItem publicacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem autoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editorialesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tiendasToolStripMenuItem;
     }
 }

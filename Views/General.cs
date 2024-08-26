@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using _06Publicaciones.Views.Empleados;
 using _06Publicaciones.Views.Autores;
+using _06Publicaciones.Views.Trabajos;
+using _06Publicaciones.Views.Publicaciones;
+using _06Publicaciones.Views.Ventas;
+using _06Publicaciones.Views.Editoriales;
+using _06Publicaciones.Views.Tiendas;
 
 
 namespace _06Publicaciones.Views
@@ -35,7 +40,27 @@ namespace _06Publicaciones.Views
 
         private void trabajosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frm_trabajo _Trabajo = new frm_trabajo();
+            _Trabajo.ShowDialog();
 
+        }
+
+        private void editorialesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_editoriales _Editoriales = new frm_editoriales();
+            _Editoriales.ShowDialog();
+        }
+
+        private void publicacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_publicaciones _Publicaciones = new frm_publicaciones();
+            _Publicaciones.ShowDialog();
+        }
+
+        private void tiendasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_tiendas _Tiendas = new frm_tiendas();
+            _Tiendas.ShowDialog();
         }
     }
 }
